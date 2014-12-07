@@ -15,12 +15,12 @@
   $colors: sg-get-colors($color-stops);
 
   @return (
-    'fallback': nth($colors, 1),
-    'direction': $direction,
-    'legacy-direction': gh-legacy-direction($direction),
-    'color-stops': gh-ensure-color-stops($color-stops),
-    'colors': $colors,
-    'length': length($colors)
+    "fallback": nth($colors, 1),
+    "direction": $direction,
+    "legacy-direction": gh-legacy-direction($direction),
+    "color-stops": gh-ensure-color-stops($color-stops),
+    "colors": $colors,
+    "length": length($colors)
   );
 }
 
@@ -43,9 +43,9 @@
 /// @param {Gradient} $gradient - Gradient instance
 /// @param {Color} $fallback (gh-get($gradient, 'fallback')) - Color of first color stop
 /// @output `background`
-@mixin sg-display($gradient, $fallback: gh-get($gradient, 'fallback')) {
+@mixin sg-display($gradient, $fallback: gh-get($gradient, "fallback")) {
   background: $fallback;
-  background: linear-gradient(gh-get($gradient, 'direction'), gh-get($gradient, 'color-stops'));
+  background: linear-gradient(gh-get($gradient, "direction"), gh-get($gradient, "color-stops"));
 }
 
 
