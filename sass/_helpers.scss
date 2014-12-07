@@ -37,9 +37,9 @@
         $previous-stop: nth(nth($color-stops, $i - 1), 2);
 
         $next-color-stop-index: sg-get-next-full-color-stop-index($color-stops, $i);
-        $next-stop: nth(nth($color-stops, $next-color-stop-index), 2);
+        $next-stop: if($next-color-stop-index, nth(nth($color-stops, $next-color-stop-index), 2), 100%);
 
-        $computed-stop: $previous-stop + (($next-stop - $previous-stop) / ($next-color-stop-index - $i + 1));
+        $computed-stop: $previous-stop + (($next-stop - $previous-stop) / (($next-color-stop-index or length($color-stops)) - $i + 1));
       }
 
       $color-stops: set-nth($color-stops, $i, $stop $computed-stop);

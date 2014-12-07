@@ -17,8 +17,8 @@
   @return (
     "fallback": nth($colors, 1),
     "direction": $direction,
-    "legacy-direction": gh-legacy-direction($direction),
-    "color-stops": gh-ensure-color-stops($color-stops),
+    "legacy-direction": sg-legacy-direction($direction),
+    "color-stops": sg-ensure-color-stops($color-stops),
     "colors": $colors,
     "length": length($colors)
   );
