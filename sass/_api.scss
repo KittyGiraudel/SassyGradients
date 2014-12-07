@@ -54,7 +54,7 @@
 @mixin sg-debug($gradient) {
   @at-root {
     @debug-gradient {
-      raw-debug: inspect($gradient);
+      raw: inspect($gradient);
       @each $key, $value in $gradient {
       #{$key}: inspect($value);
       }

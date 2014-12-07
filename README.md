@@ -66,7 +66,7 @@ $length: sg-get($gradient, "length");
 
 ```css
 @debug-gradient {
-  raw-debug: ("fallback": red, "direction": to bottom right, "legacy-direction": top left, "color-stops": (red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%), "colors": (red, yellow, green, blue, red, green), "length": 6);
+  raw: ("fallback": red, "direction": to bottom right, "legacy-direction": top left, "color-stops": (red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%), "colors": (red, yellow, green, blue, red, green), "length": 6);
   fallback: red;
   direction: to bottom right;
   legacy-direction: top left;
