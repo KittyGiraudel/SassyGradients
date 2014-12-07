@@ -4,9 +4,8 @@
 // @access private
 ////
 
-/// Return the position of the next full color stop
-/// which is a color-stop made of a color AND a stop.
-/// @param {List} $color-stops - List of color stops
+/// Return the position of the next full color stop.
+/// @param {List} $color-stops - List of color-stops
 /// @param {Number} $start-index (1) - Start index
 /// @return {Number | Null} - Index or null
 @function sg-get-next-full-color-stop-index($color-stops, $start-index: 1) {
@@ -22,9 +21,8 @@
 }
 
 
-/// Make sure all color stops from the given list
-/// of color stops are composed of a color AND a stop.
-/// @param {List} $color-stops - Color stops
+/// Make sure all color-stops from the the list are full color-stops.
+/// @param {List} $color-stops - List of color-stops
 /// @return {List} Updated color stops
 @function sg-ensure-color-stops($color-stops) {
   $length: length($color-stops);
@@ -56,8 +54,8 @@
 }
 
 
-/// Extract a list of colors from a list of color-stops
-/// @param {List} $color-stops - Color stops
+/// Extract colors from a list of color-stops.
+/// @param {List} $color-stops - List of color-stops
 /// @return {List} List of colors
 @function sg-get-colors($color-stops) {
   $colors: ();

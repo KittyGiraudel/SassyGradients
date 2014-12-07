@@ -53,8 +53,9 @@
   @at-root {
     @debug-gradient {
       raw: inspect($gradient);
+
       @each $key, $value in $gradient {
-      #{$key}: inspect($value);
+        #{$key}: inspect($value);
       }
     }
   }
