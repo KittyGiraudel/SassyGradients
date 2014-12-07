@@ -56,6 +56,18 @@ $length: sg-get($gradient, "length");
 // 6
 ```
 
+## Update direction
+
+```scss
+$new-gradient: sg-gradient(to bottom, sg-get($gradient, "color-stops"));
+```
+
+## Update color-stops
+
+```scss
+$new-gradient: sg-gradient(sg-get($gradient, "direction"), yellow, green, blue, purple, magenta);
+```
+
 ## Debug
 
 ```scss
