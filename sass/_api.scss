@@ -1,13 +1,10 @@
 ////
-// Here is a collection of tools to help manage gradients.
-// The idea is simple, you instance a gradient with the
-// `gh-gradient` function in order to get a map of properties.
-// This map contains a lot of things helping you tweaking your
-// gradients the way you want.
+// Public API
+// @group API
+// @access public
 ////
 
 /// Instanciate a gradient
-/// @access public
 /// @param {Direction} $direction - Gradient direction
 /// @param {Arglist} $color-stops - List of color-stops
 /// @return {Gradient} Gradient instance
@@ -51,6 +48,7 @@
 
 /// Debug a gradient instance at root level in a `@debug-gradient` rule
 /// @param {Gradient} $gradient - Gradient instance
+/// @output `@debug-gradient` declaration
 @mixin sg-debug($gradient) {
   @at-root {
     @debug-gradient {
