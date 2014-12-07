@@ -1,0 +1,111 @@
+/// Return the position of the next full color stop
+/// which is a color-stop made of a color AND a stop.
+/// @param {List} $color-stops - List of color stops
+/// @param {Number} $start-index (1) - Start index
+/// @return {Number | Null} - Index or null
+@function sg-get-next-full-color-stop-index($color-stops, $start-index: 1) {
+  $length: length($color-stops);
+
+  @for $i from $start-index through $length {
+    @if length(nth($color-stops, $i)) == 2 {
+      @return $i;
+    }
+  }
+
+  @return null;
+}
+
+
+/// Make sure all color stops from the given list
+/// of color stops are composed of a color AND a stop.
+/// @param {List} $color-stops - Color stops
+/// @return {List} Updated color stops
+@function sg-ensure-color-stops($color-stops) {
+  $length: length($color-stops);
+
+  @for $i from 1 through $length {
+    $stop: nth($color-stops, $i);
+
+    @if length($stop) == 1 {
+      $computed-stop: null;
+
+      @if $i == 1 {
+        $computed-stop: 0%;
+      } @else if $i == $length {
+        $computed-stop: 100%;
+      } @else {
+        $previous-stop: nth(nth($color-stops, $i - 1), 2);
+
+        $next-color-stop-index: sg-get-next-full-color-stop-index($color-stops, $i);
+        $next-stop: nth(nth($color-stops, $next-color-stop-index), 2);
+
+        $computed-stop: $previous-stop + (($next-stop - $previous-stop) / ($next-color-stop-index - $i + 1));
+      }
+
+      $color-stops: set-nth($color-stops, $i, $stop $computed-stop);
+    }
+  }
+
+  @return $color-stops;
+}
+
+
+/// Extract a list of colors from a list of color-stops
+/// @param {List} $color-stops - Color stops
+/// @return {List} List of colors
+@function sg-get-colors($color-stops) {
+  $colors: ();
+
+  @each $stop in $color-stops {
+    @if type-of(nth($stop, 1)) == "color" {
+      $colors: append($colors, nth($stop, 1), comma);
+    }
+  }
+
+  @return $colors;
+}
+
+
+/// Test whether a value is a direction for a gradient
+/// @param {*} $value - Value to test
+/// @return {Bool}
+@function sg-is-direction($value) {
+  $is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+  $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+
+  @return $is-keyword or $is-angle;
+}
+
+
+/// Convert a direction to legacy syntax
+/// @param {Direction} $value - Value to convert
+/// @return {Direction} Legacy direction
+/// @throw Throws an error if input value is not a direction
+@function sg-legacy-direction($value) {
+  @if sg-is-direction($value) == false {
+    @error "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be a direction.";
+  }
+
+  $conversion-map: (
+    to top          : bottom,
+    to top right    : bottom left,
+    to right top    : left bottom,
+    to right        : left,
+    to bottom right : top left,
+    to right bottom : left top,
+    to bottom       : top,
+    to bottom left  : top right,
+    to left bottom  : right top,
+    to left         : right,
+    to left top     : right bottom,
+    to top left     : bottom right
+  );
+
+  @if map-has-key($conversion-map, $value) {
+    @return map-get($conversion-map, $value);
+  }
+
+  @return 90deg - $value;
+}
+
+

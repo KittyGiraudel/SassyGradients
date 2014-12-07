@@ -1,0 +1,63 @@
+////
+// Here is a collection of tools to help manage gradients.
+// The idea is simple, you instance a gradient with the
+// `gh-gradient` function in order to get a map of properties.
+// This map contains a lot of things helping you tweaking your
+// gradients the way you want.
+////
+
+/// Instanciate a gradient
+/// @access public
+/// @param {Direction} $direction - Gradient direction
+/// @param {Arglist} $color-stops - List of color-stops
+/// @return {Gradient} Gradient instance
+@function sg-gradient($direction, $color-stops...) {
+  $colors: sg-get-colors($color-stops);
+
+  @return (
+    'fallback': nth($colors, 1),
+    'direction': $direction,
+    'legacy-direction': gh-legacy-direction($direction),
+    'color-stops': gh-ensure-color-stops($color-stops),
+    'colors': $colors,
+    'length': length($colors)
+  );
+}
+
+
+/// Property getter for a gradient
+/// @param {Gradient} $gradient - Gradient instance
+/// @param {String} $key - Key to fetch
+/// @return {*}
+/// @throw Throws an error if key doesn't exist.
+@function sg-get($gradient, $key) {
+  @if map-has-key($gradient, $key) == false {
+    @error "Gradients do not have a key named `#{$key}`.";
+  }
+
+  @return map-get($gradient, $key);
+}
+
+
+/// Display a gradient instance, with its fallback
+/// @param {Gradient} $gradient - Gradient instance
+/// @param {Color} $fallback (gh-get($gradient, 'fallback')) - Color of first color stop
+/// @output `background`
+@mixin sg-display($gradient, $fallback: gh-get($gradient, 'fallback')) {
+  background: $fallback;
+  background: linear-gradient(gh-get($gradient, 'direction'), gh-get($gradient, 'color-stops'));
+}
+
+
+/// Debug a gradient instance at root level in a `@debug-gradient` rule
+/// @param {Gradient} $gradient - Gradient instance
+@mixin sg-debug($gradient) {
+  @at-root {
+    @debug-gradient {
+      raw-debug: inspect($gradient);
+      @each $key, $value in $gradient {
+      #{$key}: inspect($value);
+      }
+    }
+  }
+}
