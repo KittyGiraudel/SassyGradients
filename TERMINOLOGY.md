@@ -7,14 +7,14 @@ Gradient instance, resulting of a `sg-gradient` call.
 
 ```scss
 // Example
-(
+$gradient: (
   "fallback": red,
   "direction": to bottom right,
   "legacy-direction": top left,
   "color-stops": (red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%),
   "colors": (red, yellow, green, blue, red, green),
   "length": 6
-)
+);
 ```
 
 ## Color
@@ -23,7 +23,16 @@ Value whom type is `color`.
 
 ```scss
 // Example
-$color: hotpink:
+$color: hotpink;
+```
+
+## Stop
+
+Length that comes with a color in a color-stop. Usually expressed in `%` but can be any unit.
+
+```scss
+// Example
+$stop: 42%;
 ```
 
 ## Color-stop
@@ -43,13 +52,4 @@ Color-stop composed of a color **and** a stop.
 ```scss
 // Example
 $color-stop: hotpink 42%;
-```
-
-## Stop
-
-Length that comes with a color in a color-stop. Usually expressed in `%`.
-
-```scss
-// Example
-$stop: 42%;
 ```
