@@ -24,7 +24,7 @@
 /// Make sure all color-stops from the the list are full color-stops.
 /// @param {List} $color-stops - List of color-stops
 /// @return {List} Updated color stops
-@function sg-ensure-color-stops($color-stops) {
+@function sg-full-color-stops($color-stops) {
   $length: length($color-stops);
 
   @for $i from 1 through $length {

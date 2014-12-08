@@ -18,7 +18,7 @@
     "direction": $direction,
     "legacy-direction": sg-legacy-direction($direction),
     "authored-color-stops": $color-stops,
-    "color-stops": sg-ensure-color-stops($color-stops),
+    "color-stops": sg-full-color-stops($color-stops),
     "colors": $colors,
     "length": length($colors)
   );
