@@ -140,11 +140,11 @@
     $color: nth($colors, $i);
 
     @if $i > 1 {
-      $stripes: append($stripes, $color nth(nth($stripes, -1), 2), comma);
+      $stripes: append($stripes, $color nth(nth($stripes, -1), 2), "comma");
     }
 
     @if $i < $length {
-      $stripes: append($stripes, $color (100% / $length * $i), comma);
+      $stripes: append($stripes, $color (100% / $length * $i), "comma");
     }
   }
 
