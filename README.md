@@ -68,6 +68,10 @@ $new-gradient: sg-gradient(to bottom, sg-get($gradient, "color-stops"));
 ## Update color-stops
 
 ```scss
+// Adding a new color-stop
+$new-gradient: sg-gradient(sg-get($gradient, "direction"), append(sg-get($gradient, "authored-color-stops"), hotpink, comma)...);
+
+// Brand new color-stops
 $new-gradient: sg-gradient(sg-get($gradient, "direction"), yellow, green, blue, purple, magenta);
 ```
 
