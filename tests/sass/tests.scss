@@ -1,0 +1,20 @@
+@import "../../sass/main";
+
+$tests: (
+    (to bottom, hotpink, red, blue),
+    (42deg, yellow 20%, green, blue, red 55%, blue 55%, hotpink 80%)
+);
+
+@for $i from 1 through length($tests) {
+    .test-#{$i} {
+        $gradient: sg-gradient(nth($tests, $i)...);
+        @include sg-display($gradient);
+    }
+}
+
+@for $i from 1 through length($tests) {
+    .test-stripes-#{$i} {
+        $gradient: sg-stripes(sg-gradient(nth($tests, $i)...));
+        @include sg-display($gradient);
+    }
+}
