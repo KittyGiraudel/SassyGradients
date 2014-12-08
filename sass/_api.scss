@@ -15,6 +15,7 @@
     "fallback": nth($colors, 1),
     "direction": $direction,
     "legacy-direction": sg-legacy-direction($direction),
+    "authored-color-stops": $color-stops,
     "color-stops": sg-ensure-color-stops($color-stops),
     "colors": $colors,
     "length": length($colors)

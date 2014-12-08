@@ -52,6 +52,9 @@ $colors: sg-get($gradient, "colors"):
 $color-stops: sg-get($gradient, "color-stops");
 // red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%
 
+$authored-color-stops: sg-get($gradient, "authored-color-stops");
+// red 20%, yellow, green, blue 55%, red 55%, green
+
 $length: sg-get($gradient, "length");
 // 6
 ```
@@ -78,10 +81,11 @@ $new-gradient: sg-gradient(sg-get($gradient, "direction"), yellow, green, blue, 
 
 ```css
 @debug-gradient {
-  raw: ("fallback": red, "direction": to bottom right, "legacy-direction": top left, "color-stops": (red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%), "colors": (red, yellow, green, blue, red, green), "length": 6);
+  raw: ("fallback": red, "direction": to bottom right, "legacy-direction": top left, "authored-color-stops": (red 20%, yellow, green, blue 55%, red 55%, green), "color-stops": (red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%), "colors": (red, yellow, green, blue, red, green), "length": 6);
   fallback: red;
   direction: to bottom right;
   legacy-direction: top left;
+  authored-color-stops: red 20%, yellow, green, blue 55%, red 55%, green;
   color-stops: red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%;
   colors: red, yellow, green, blue, red, green;
   length: 6;
