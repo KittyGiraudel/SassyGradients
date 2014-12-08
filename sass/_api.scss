@@ -64,6 +64,11 @@
 /// }
 @mixin sg-display($gradient, $fallback: sg-get($gradient, "fallback")) {
   background: $fallback;
+
+  @if global-variable-exists("sg-prefix") and $sg-prefix == true {
+    background: -webkit-linear-gradient(sg-get($gradient, "legacy-direction"), sg-get($gradient, "color-stops"));
+  }
+
   background: linear-gradient(sg-get($gradient, "direction"), sg-get($gradient, "color-stops"));
 }
 

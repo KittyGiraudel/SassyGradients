@@ -34,6 +34,26 @@ As a default, the [fallback](https://github.com/HugoGiraudel/SassyGradients/blob
 }
 ```
 
+## Enable vendor prefixes
+
+If you want SassyGradients to display the `-webkit-` version of your gradients, create a global `sg-prefix` variable set to `true`.
+
+```scss
+$sg-prefix: true !global;
+
+.selector {
+  @include sg-display($gradient);
+}
+```
+
+```css
+.selector {
+  background: red;
+  background: -webkit-linear-gradient(top left, red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%);
+  background: linear-gradient(to bottom right, red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%);
+}
+```
+
 ## Access properties
 
 ```scss
