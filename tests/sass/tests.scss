@@ -1,8 +1,13 @@
 @import "../../sass/main";
 
+$sg-prefix: true !global;
+
 $tests: (
     (to bottom, hotpink, red, blue),
-    (42deg, yellow 20%, green, blue, red 55%, blue 55%, hotpink 80%)
+    (42deg, yellow 20%, green, blue, red 55%, blue 55%, hotpink 80%),
+    (to bottom, #31B7D7, #EDAC7D),
+    (to right, #E47D7D, #C195D3, #4FB4E8),
+    (to bottom right, #B58234, #D2B545 50%, #D7C04D 50.01%, #FFFFFF)
 );
 
 @for $i from 1 through length($tests) {

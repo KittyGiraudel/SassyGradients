@@ -1,17 +1,51 @@
 .test-1 {
   background: hotpink;
+  background: -webkit-linear-gradient(top, hotpink 0%, red 50%, blue 100%);
   background: linear-gradient(to bottom, hotpink 0%, red 50%, blue 100%); }
 
 .test-2 {
   background: yellow;
+  background: -webkit-linear-gradient(48deg, yellow 20%, green 31.66667%, blue 43.33333%, red 55%, blue 55%, hotpink 80%);
   background: linear-gradient(42deg, yellow 20%, green 31.66667%, blue 43.33333%, red 55%, blue 55%, hotpink 80%); }
+
+.test-3 {
+  background: #31B7D7;
+  background: -webkit-linear-gradient(top, #31B7D7 0%, #EDAC7D 100%);
+  background: linear-gradient(to bottom, #31B7D7 0%, #EDAC7D 100%); }
+
+.test-4 {
+  background: #E47D7D;
+  background: -webkit-linear-gradient(left, #E47D7D 0%, #C195D3 50%, #4FB4E8 100%);
+  background: linear-gradient(to right, #E47D7D 0%, #C195D3 50%, #4FB4E8 100%); }
+
+.test-5 {
+  background: #B58234;
+  background: -webkit-linear-gradient(top left, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%);
+  background: linear-gradient(to bottom right, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%); }
 
 .test-stripes-1 {
   background: hotpink;
+  background: -webkit-linear-gradient(top, hotpink 33.33333%, red 33.33333%, red 66.66667%, blue 66.66667%);
   background: linear-gradient(to bottom, hotpink 33.33333%, red 33.33333%, red 66.66667%, blue 66.66667%); }
 
 .test-stripes-2 {
   background: yellow;
+  background: -webkit-linear-gradient(48deg, yellow 16.66667%, green 16.66667%, green 33.33333%, blue 33.33333%, blue 50%, red 50%, red 66.66667%, blue 66.66667%, blue 83.33333%, hotpink 83.33333%);
   background: linear-gradient(42deg, yellow 16.66667%, green 16.66667%, green 33.33333%, blue 33.33333%, blue 50%, red 50%, red 66.66667%, blue 66.66667%, blue 83.33333%, hotpink 83.33333%); }
+
+.test-stripes-3 {
+  background: #31B7D7;
+  background: -webkit-linear-gradient(top, #31B7D7 50%, #EDAC7D 50%);
+  background: linear-gradient(to bottom, #31B7D7 50%, #EDAC7D 50%); }
+
+.test-stripes-4 {
+  background: #E47D7D;
+  background: -webkit-linear-gradient(left, #E47D7D 33.33333%, #C195D3 33.33333%, #C195D3 66.66667%, #4FB4E8 66.66667%);
+  background: linear-gradient(to right, #E47D7D 33.33333%, #C195D3 33.33333%, #C195D3 66.66667%, #4FB4E8 66.66667%); }
+
+.test-stripes-5 {
+  background: #B58234;
+  background: -webkit-linear-gradient(top left, #B58234 25%, #D2B545 25%, #D2B545 50%, #D7C04D 50%, #D7C04D 75%, #FFFFFF 75%);
+  background: linear-gradient(to bottom right, #B58234 25%, #D2B545 25%, #D2B545 50%, #D7C04D 50%, #D7C04D 75%, #FFFFFF 75%); }
 
 /*# sourceMappingURL=tests.css.map */
