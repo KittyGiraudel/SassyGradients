@@ -39,11 +39,11 @@
 
 /// Display a gradient instance, with its fallback
 /// @param {Gradient} $gradient - Gradient instance
-/// @param {Color} $fallback (gh-get($gradient, 'fallback')) - Color of first color stop
+/// @param {Color} $fallback (sg-get($gradient, 'fallback')) - Color of first color stop
 /// @output `background`
-@mixin sg-display($gradient, $fallback: gh-get($gradient, "fallback")) {
+@mixin sg-display($gradient, $fallback: sg-get($gradient, "fallback")) {
   background: $fallback;
-  background: linear-gradient(gh-get($gradient, "direction"), gh-get($gradient, "color-stops"));
+  background: linear-gradient(sg-get($gradient, "direction"), sg-get($gradient, "color-stops"));
 }
 
 
