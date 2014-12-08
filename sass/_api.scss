@@ -63,13 +63,18 @@
 ///   @include sg-display($gradient);
 /// }
 @mixin sg-display($gradient, $fallback: sg-get($gradient, "fallback")) {
+  $color-stops: sg-get($gradient, "color-stops");
+
+  // Fallback
   background: $fallback;
 
+  // WebKit prefixed version using old syntax
   @if global-variable-exists("sg-prefix") and $sg-prefix == true {
-    background: -webkit-linear-gradient(sg-get($gradient, "legacy-direction"), sg-get($gradient, "color-stops"));
+    background: -webkit-linear-gradient(sg-get($gradient, "legacy-direction"), $color-stops...);
   }
 
-  background: linear-gradient(sg-get($gradient, "direction"), sg-get($gradient, "color-stops"));
+  // Standard gradient
+  background: linear-gradient(sg-get($gradient, "direction"), $color-stops...);
 }
 
 
