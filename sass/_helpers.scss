@@ -126,3 +126,27 @@
 
   @return 90deg - $value;
 }
+
+
+/// Turn a list of colors or color-stops into a list of stripes
+/// @param {List} $colors - List of colors (or color-stops)
+/// @return {List} List of full color-stops
+@function sg-compute-stripes($colors) {
+  $colors: sg-get-colors($colors);
+  $length: length($colors);
+  $stripes: ();
+
+  @for $i from 1 through $length {
+    $color: nth($colors, $i);
+
+    @if $i > 1 {
+      $stripes: append($stripes, $color nth(nth($stripes, -1), 2), comma);
+    }
+
+    @if $i < $length {
+      $stripes: append($stripes, $color (100% / $length * $i), comma);
+    }
+  }
+
+  @return $stripes;
+}

@@ -75,6 +75,14 @@ $new-gradient: sg-gradient(sg-get($gradient, "direction"), append(sg-get($gradie
 $new-gradient: sg-gradient(sg-get($gradient, "direction"), yellow, green, blue, purple, magenta);
 ```
 
+## Create stripes
+
+```scss
+// New Gradient instance with updated `color-stops` and `length`
+// Note that `authored-color-stops` does not change whatsoever
+$stripes: sg-stripes($gradient);
+```
+
 ## Debug
 
 ```scss

@@ -72,3 +72,28 @@
     }
   }
 }
+
+
+/// Redefine the color-stops and length properties
+/// of the given gradient so they are perfect stripes.
+/// @param {Gradient} $gradient - Gradient instance
+/// @return {Gradient} Updated gradient instance
+/// @example scss - Turn a gradient into stripes
+/// $gradient: sg-gradient(to right, hotpink 42%, tomato);
+/// $gradient: sg-stripes($gradient);
+/// .selector {
+///   @include sg-display($gradient);
+/// }
+/// @example css - Resulting CSS
+/// .selector {
+///   background: hotpink;
+///   background: linear-gradient(to right, hotpink 50%, tomato 50%);
+/// }
+@function sg-stripes($gradient) {
+  $stripes: sg-compute-stripes(sg-get($gradient, "colors"));
+
+  @return map-merge($gradient, (
+    "color-stops": $stripes,
+    "length": length($stripes)
+  ));
+}
