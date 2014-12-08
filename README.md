@@ -79,7 +79,7 @@ $new-gradient: sg-gradient(sg-get($gradient, "direction"), yellow, green, blue, 
 
 ```scss
 .debug {
-  @include gh-debug($gradient);
+  @include sg-debug($gradient);
 }
 ```
 
