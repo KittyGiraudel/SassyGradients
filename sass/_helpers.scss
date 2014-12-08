@@ -55,8 +55,14 @@
 
 
 /// Extract colors from a list of color-stops.
+/// This is not part of the public API, please use
+/// `sg-get($gradient, "colors")` instead.
 /// @param {List} $color-stops - List of color-stops
 /// @return {List} List of colors
+/// @example scss - Extra colors from a list of color-stops
+/// $gradient: sg-gradient(to right, hotpink 42%, tomato);
+/// $colors: sg-get-colors(sg-get($gradient, "color-stops"));
+/// // hotpink, tomato
 @function sg-get-colors($color-stops) {
   $colors: ();
 
@@ -73,6 +79,15 @@
 /// Test whether a value is a direction for a gradient
 /// @param {*} $value - Value to test
 /// @return {Bool}
+/// @example scss - Test whether `to right` is a direction
+/// $is-direction: sg-is-direction(to right);
+/// // true
+/// @example scss - Test whether `42rad` is a direction
+/// $is-direction: sg-is-direction(42rad);
+/// // true
+/// @example scss - Test whether `1337px` is a direction
+/// $is-direction: sg-is-direction(1337px);
+/// // false
 @function sg-is-direction($value) {
   $is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
   $is-angle: type-of($value) == "number" and index("deg" "grad" "turn" "rad", unit($value));

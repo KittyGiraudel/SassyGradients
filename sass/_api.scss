@@ -8,6 +8,8 @@
 /// @param {Direction} $direction - Gradient direction
 /// @param {Arglist} $color-stops - List of color-stops
 /// @return {Gradient} Gradient instance
+/// @example scss - Instanciating a new gradient
+/// $gradient: sg-gradient(to right, hotpink 42%, tomato);
 @function sg-gradient($direction, $color-stops...) {
   $colors: sg-get-colors($color-stops);
 
@@ -28,6 +30,10 @@
 /// @param {String} $key - Key to fetch
 /// @return {*}
 /// @throw Throws an error if key doesn't exist.
+/// @example scss - Getting the colors used in a Gradient
+/// $gradient: sg-gradient(to right, hotpink 42%, tomato);
+/// $colors: sg-get($gradient, "colors");
+/// // hotpink, tomato
 @function sg-get($gradient, $key) {
   @if map-has-key($gradient, $key) == false {
     @error "Gradients do not have a key named `#{$key}`.";
@@ -41,6 +47,11 @@
 /// @param {Gradient} $gradient - Gradient instance
 /// @param {Color} $fallback (sg-get($gradient, 'fallback')) - Color of first color stop
 /// @output `background`
+/// @example scss - Displaying a gradient
+/// $gradient: sg-gradient(to right, hotpink 42%, tomato);
+/// .selector {
+///   @include sg-display($gradient);
+/// }
 @mixin sg-display($gradient, $fallback: sg-get($gradient, "fallback")) {
   background: $fallback;
   background: linear-gradient(sg-get($gradient, "direction"), sg-get($gradient, "color-stops"));
