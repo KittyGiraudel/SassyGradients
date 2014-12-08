@@ -8,9 +8,19 @@
 /// @param {Direction} $direction - Gradient direction
 /// @param {Arglist} $color-stops - List of color-stops
 /// @return {Gradient} Gradient instance
+/// @throw Throws an error if direction is invalid.
+/// @throw Throws an error if there is not at least 2 color-stops.
 /// @example scss - Instanciating a new gradient
 /// $gradient: sg-gradient(to right, hotpink 42%, tomato);
 @function sg-gradient($direction, $color-stops...) {
+  @if sg-is-direction($direction) == false {
+    @error "`#{$direction}` is not a valid direction for a gradient.";
+  }
+
+  @if length($color-stops) < 2 {
+    @error "There should be at least 2 color-stops; #{length($color-stops)} given.";
+  }
+
   $colors: sg-get-colors($color-stops);
 
   @return (
