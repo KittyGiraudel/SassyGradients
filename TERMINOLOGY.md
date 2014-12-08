@@ -53,3 +53,13 @@ Color-stop composed of a color **and** a stop.
 // Example
 $color-stop: hotpink 42%;
 ```
+
+## Fallback
+
+When related to gradients, the fallback is the color being used before any linear-gradient declaration for browsers that do not support CSS gradients.
+
+```scss
+.selector {
+    background: hotpink;
+    background: linear-gradient(to right, hotpink, tomato);
+}
