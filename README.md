@@ -3,9 +3,9 @@ SassyGradients
 
 Sass helpers to manipulate gradients.
 
-## Instanciate
+## Instantiate
 
-To instanciate a new [Gradient](https://github.com/HugoGiraudel/SassyGradients/blob/master/TERMINOLOGY.md#gradient), use the exact same syntax as CSS with the `sg-gradient` function.
+To instantiate a new [Gradient](https://github.com/HugoGiraudel/SassyGradients/blob/master/TERMINOLOGY.md#gradient), use the exact same syntax as CSS with the `sg-gradient` function.
 
 ```scss
 $gradient: sg-gradient(to bottom right, red 20%, yellow, green, blue 55%, red 55%, green);
