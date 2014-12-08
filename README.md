@@ -34,6 +34,13 @@ As a default, the [fallback](https://github.com/HugoGiraudel/SassyGradients/blob
 }
 ```
 
+```css
+.selector {
+  background: blue;
+  background: linear-gradient(to bottom right, red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%);
+}
+```
+
 ## Enable vendor prefixes
 
 If you want SassyGradients to display the `-webkit-` version of your gradients, create a global `sg-prefix` variable set to `true`.
@@ -52,31 +59,6 @@ $sg-prefix: true !global;
   background: -webkit-linear-gradient(top left, red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%);
   background: linear-gradient(to bottom right, red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%);
 }
-```
-
-## Access properties
-
-```scss
-$fallback: sg-get($gradient, "fallback");
-// red
-
-$direction: sg-get($gradient, "direction");
-// to bottom right
-
-$legacy-direction: sg-get($gradient, "legacy-direction");
-// top left
-
-$colors: sg-get($gradient, "colors"):
-// red, yellow, green, blue, red, green
-
-$color-stops: sg-get($gradient, "color-stops");
-// red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%
-
-$authored-color-stops: sg-get($gradient, "authored-color-stops");
-// red 20%, yellow, green, blue 55%, red 55%, green
-
-$length: sg-get($gradient, "length");
-// 6
 ```
 
 ## Update direction
@@ -122,4 +104,29 @@ $stripes: sg-stripes($gradient);
   colors: red, yellow, green, blue, red, green;
   length: 6;
 }
+```
+
+## Access specific properties
+
+```scss
+$fallback: sg-get($gradient, "fallback");
+// red
+
+$direction: sg-get($gradient, "direction");
+// to bottom right
+
+$legacy-direction: sg-get($gradient, "legacy-direction");
+// top left
+
+$colors: sg-get($gradient, "colors"):
+// red, yellow, green, blue, red, green
+
+$color-stops: sg-get($gradient, "color-stops");
+// red 20%, yellow 31.6666666667%, green 43.3333333333%, blue 55%, red 55%, green 100%
+
+$authored-color-stops: sg-get($gradient, "authored-color-stops");
+// red 20%, yellow, green, blue 55%, red 55%, green
+
+$length: sg-get($gradient, "length");
+// 6
 ```
