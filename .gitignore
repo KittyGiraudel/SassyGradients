@@ -2,3 +2,5 @@
 .tmp
 .sass-cache/
 *.map
+.sassdoc
+sassdocify
