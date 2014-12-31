@@ -1,0 +1,12 @@
+basePath: "https://github.com/HugoGiraudel/SassyGradients/tree/master/sass"
+display:
+    access: ["public", "private"]
+    alias: false
+    watermark: true
+
+package: "./package.json"
+theme: "default"
+groups:
+    undefined: "General"
+    API: "API"
+    helpers: "Helpers"
