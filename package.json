@@ -1,0 +1,23 @@
+{
+  "title": "SassyGradients",
+  "name": "SassyGradients",
+  "version": "0.1.0",
+  "description": "A powerful wrapper to handle CSS gradients in Sass.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HugoGiraudel/SassyGradients"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "gradients",
+    "gradient",
+    "css"
+  ],
+  "author": "Hugo Giraudel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HugoGiraudel/SassyGradients/issues"
+  },
+  "homepage": "https://github.com/HugoGiraudel/SassyGradients"
+}
