@@ -1,7 +1,7 @@
 SassyGradients
 ==============
 
-Sass helpers to manipulate gradients.
+Sass helpers to manipulate gradients. Read [API documentation](http://hugogiraudel.com/SassyGradients).
 
 ## Instantiate
 
