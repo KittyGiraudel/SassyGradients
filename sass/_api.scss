@@ -14,23 +14,23 @@
 /// $gradient: sg-gradient(to right, hotpink 42%, tomato);
 @function sg-gradient($direction, $color-stops...) {
   @if sg-is-direction($direction) == false {
-    @error "`#{$direction}` is not a valid direction for a gradient.";
+    @error '`#{$direction}` is not a valid direction for a gradient.';
   }
 
   @if length($color-stops) < 2 {
-    @error "There should be at least 2 color-stops; #{length($color-stops)} given.";
+    @error 'There should be at least 2 color-stops; #{length($color-stops)} given.';
   }
 
   $colors: sg-get-colors($color-stops);
 
   @return (
-    "fallback": nth($colors, 1),
-    "direction": $direction,
-    "legacy-direction": sg-legacy-direction($direction),
-    "authored-color-stops": $color-stops,
-    "color-stops": sg-full-color-stops($color-stops),
-    "colors": $colors,
-    "length": length($colors)
+    'fallback': nth($colors, 1),
+    'direction': $direction,
+    'legacy-direction': sg-legacy-direction($direction),
+    'authored-color-stops': $color-stops,
+    'color-stops': sg-full-color-stops($color-stops),
+    'colors': $colors,
+    'length': length($colors)
   );
 }
 
@@ -42,11 +42,11 @@
 /// @throw Throws an error if key doesn't exist.
 /// @example scss - Getting the colors used in a Gradient
 /// $gradient: sg-gradient(to right, hotpink 42%, tomato);
-/// $colors: sg-get($gradient, "colors");
+/// $colors: sg-get($gradient, 'colors');
 /// // hotpink, tomato
 @function sg-get($gradient, $key) {
   @if map-has-key($gradient, $key) == false {
-    @error "Gradients do not have a key named `#{$key}`.";
+    @error 'Gradients do not have a key named `#{$key}`.';
   }
 
   @return map-get($gradient, $key);
@@ -62,19 +62,19 @@
 /// .selector {
 ///   @include sg-display($gradient);
 /// }
-@mixin sg-display($gradient, $fallback: sg-get($gradient, "fallback")) {
-  $color-stops: sg-get($gradient, "color-stops");
+@mixin sg-display($gradient, $fallback: sg-get($gradient, 'fallback')) {
+  $color-stops: sg-get($gradient, 'color-stops');
 
   // Fallback
   background: $fallback;
 
   // WebKit prefixed version using old syntax
-  @if global-variable-exists("sg-prefix") and $sg-prefix == true {
-    background: -webkit-linear-gradient(sg-get($gradient, "legacy-direction"), $color-stops...);
+  @if global-variable-exists('sg-prefix') and $sg-prefix == true {
+    background: -webkit-linear-gradient(sg-get($gradient, 'legacy-direction'), $color-stops...);
   }
 
   // Standard gradient
-  background: linear-gradient(sg-get($gradient, "direction"), $color-stops...);
+  background: linear-gradient(sg-get($gradient, 'direction'), $color-stops...);
 }
 
 
@@ -110,10 +110,10 @@
 ///   background: linear-gradient(to right, hotpink 50%, tomato 50%);
 /// }
 @function sg-stripes($gradient) {
-  $stripes: sg-compute-stripes(sg-get($gradient, "colors"));
+  $stripes: sg-compute-stripes(sg-get($gradient, 'colors'));
 
   @return map-merge($gradient, (
-    "color-stops": $stripes,
-    "length": length($stripes)
+    'color-stops': $stripes,
+    'length': length($stripes)
   ));
 }
