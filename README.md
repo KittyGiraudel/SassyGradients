@@ -46,7 +46,7 @@ As a default, the [fallback](https://github.com/HugoGiraudel/SassyGradients/blob
 If you want SassyGradients to display the `-webkit-` version of your gradients, create a global `sg-prefix` variable set to `true`.
 
 ```scss
-$sg-prefix: true !global;
+$sg-prefix: true;
 
 .selector {
   @include sg-display($gradient);
