@@ -1,4 +1,4 @@
-basePath: "https://github.com/HugoGiraudel/SassyGradients/tree/master/sass"
+basePath: "https://github.com/KittyGiraudel/SassyGradients/tree/master/sass"
 display:
     access: ["public", "private"]
     alias: false
