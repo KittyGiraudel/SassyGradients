@@ -5,7 +5,7 @@
   "description": "A powerful wrapper to handle CSS gradients in Sass.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HugoGiraudel/SassyGradients"
+    "url": "https://github.com/KittyGiraudel/SassyGradients"
   },
   "keywords": [
     "sass",
@@ -14,10 +14,10 @@
     "gradient",
     "css"
   ],
-  "author": "Hugo Giraudel",
+  "author": "Kitty Giraudel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HugoGiraudel/SassyGradients/issues"
+    "url": "https://github.com/KittyGiraudel/SassyGradients/issues"
   },
-  "homepage": "https://github.com/HugoGiraudel/SassyGradients"
+  "homepage": "https://github.com/KittyGiraudel/SassyGradients"
 }
