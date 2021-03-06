@@ -1,11 +1,11 @@
 SassyGradients
 ==============
 
-Sass helpers to manipulate gradients. Read [API documentation](http://hugogiraudel.com/SassyGradients).
+Sass helpers to manipulate gradients.
 
 ## Instantiate
 
-To instantiate a new [Gradient](https://github.com/HugoGiraudel/SassyGradients/blob/master/TERMINOLOGY.md#gradient), use the exact same syntax as CSS with the `sg-gradient` function.
+To instantiate a new [Gradient](https://github.com/KittyGiraudel/SassyGradients/blob/master/TERMINOLOGY.md#gradient), use the exact same syntax as CSS with the `sg-gradient` function.
 
 ```scss
 $gradient: sg-gradient(to bottom right, red 20%, yellow, green, blue 55%, red 55%, green);
@@ -26,7 +26,7 @@ $gradient: sg-gradient(to bottom right, red 20%, yellow, green, blue 55%, red 55
 }
 ```
 
-As a default, the [fallback](https://github.com/HugoGiraudel/SassyGradients/blob/master/TERMINOLOGY.md#fallback) color is the first color of the [color-stop](https://github.com/HugoGiraudel/SassyGradients/blob/master/TERMINOLOGY.md#color-stop) chain. If you wish to use a custom [color](https://github.com/HugoGiraudel/SassyGradients/blob/master/TERMINOLOGY.md#color), you can pass it as a second parameter to the `sg-display` mixin:
+As a default, the [fallback](https://github.com/KittyGiraudel/SassyGradients/blob/master/TERMINOLOGY.md#fallback) color is the first color of the [color-stop](https://github.com/KittyGiraudel/SassyGradients/blob/master/TERMINOLOGY.md#color-stop) chain. If you wish to use a custom [color](https://github.com/KittyGiraudel/SassyGradients/blob/master/TERMINOLOGY.md#color), you can pass it as a second parameter to the `sg-display` mixin:
 
 ```scss
 .selector {
